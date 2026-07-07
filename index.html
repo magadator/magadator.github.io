@@ -13,7 +13,7 @@
 <header class="navbar">
     <h2 class="logo">Gokul Anugrah</h2>
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="research.html">Research</a>
         <a href="projects.html">Projects</a>
@@ -24,8 +24,9 @@
 </header>
 
 <section class="hero">
-    <img src="images/gokul.jpeg" alt="Profile Photo" class="profile-pic">
+    <img src="images/gokul.jpeg" alt="Portrait of Gokul Anugrah" class="profile-pic">
     <div class="hero-text">
+        <span class="eyebrow">Ph.D., Mechanical Engineering — University of Kentucky</span>
         <h1>Computational Fluid Dynamics Researcher</h1>
         <p>High-Performance Computing • Biomedical Flows • Scientific Machine Learning</p>
 
@@ -37,47 +38,69 @@
 </section>
 
 <section class="section">
-    <h2>About Me</h2>
-    <p>
+    <div class="section-label">
+        <span class="swatch" style="background: var(--flow-gradient);"></span>
+        <span>About Me</span>
+    </div>
+    <p class="lede">
         I am a computational engineer specializing in high-fidelity simulations of complex flows.
         My research focuses on pulsatile turbulent flow in curved geometries inspired by the human aorta,
-        with applications to cardiovascular disease modeling.
+        with applications to cardiovascular disease modeling — building on an earlier foundation in
+        high-speed aerospace CFD and fluid-structure interaction.
     </p>
 </section>
 
 <section class="section dark">
-    <h2>Research Highlights</h2>
+    <div class="section-label">
+        <span class="swatch" style="background: var(--flow-4);"></span>
+        <span>Research Highlights</span>
+    </div>
+    <h2>Where Simulation Meets the Clinic and the Wind Tunnel</h2>
 
     <div class="grid">
         <div class="card">
-            <h3>Aortic Flow DNS</h3>
-            <p>Direct numerical simulation of pulsatile turbulent flow in curved pipes.</p>
+            <div class="card-body">
+                <h3>Aortic Flow DNS</h3>
+                <p>Direct numerical simulation of pulsatile turbulent flow in curved pipes, isolating the roles of curvature and pulsation on Dean-vortex breakdown.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Aortic Dissection CFD</h3>
-            <p>Patient-specific simulations using CT/MRI reconstructed geometries.</p>
+            <div class="card-body">
+                <h3>Aortic Dissection CFD</h3>
+                <p>Patient-specific simulations using CT/MRI-reconstructed geometries, validated directly against 4D-flow MRI velocity fields.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>ML Surrogates</h3>
-            <p>Neural network models for fast prediction of wall shear stress fields.</p>
+            <div class="card-body">
+                <h3>ML Surrogates</h3>
+                <p>Neural-network models for fast prediction of wall shear stress fields, accelerating CFD parameter studies.</p>
+            </div>
         </div>
     </div>
 </section>
 
 <section class="section">
-    <h2>Selected Projects</h2>
+    <div class="section-label">
+        <span class="swatch" style="background: var(--flow-1);"></span>
+        <span>Selected Projects</span>
+    </div>
+    <h2>Solvers &amp; Tools</h2>
 
     <div class="grid">
         <div class="card">
-            <h3>NLFEM Solver</h3>
-            <p>C++ finite element solver using MPI and PETSc.</p>
+            <div class="card-body">
+                <h3>NLFEM Solver</h3>
+                <p>C++ finite element solver using MPI and PETSc for nonlocal / peridynamic-style structural problems.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>CFD Postprocessing Toolkit</h3>
-            <p>Python/MATLAB tools for analyzing large-scale flow data.</p>
+            <div class="card-body">
+                <h3>CFD Postprocessing Toolkit</h3>
+                <p>Python/MATLAB tools for batch analysis and validation of large-scale flow data.</p>
+            </div>
         </div>
     </div>
 </section>

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Gokul Anugrah</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,76 +11,190 @@
 <body>
 
 <header class="navbar">
-    <h2 class="logo">Gallery</h2>
+    <h2 class="logo">Gokul Anugrah</h2>
     <nav>
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="research.html">Research</a>
         <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
 
-<section class="section">
-
-<h1>Visualization Gallery</h1>
-
-<p>CFD simulations, biomedical flows, aerospace turbulence, and peridynamics results.</p>
-
----
-
-# Biomedical Flows
-
-<div class="grid">
-
-    <figure class="card">
-        <img src="images/research/wss.png" width="100%">
-        <figcaption>Wall shear stress distribution in aortic dissection geometry</figcaption>
-    </figure>
-
-    <figure class="card">
-        <img src="images/research/velocity.gif" width="100%">
-        <figcaption>Time-resolved velocity field in pulsatile aortic flow</figcaption>
-    </figure>
-
-    <figure class="card">
-        <img src="images/research/pressure.png" width="100%">
-        <figcaption>Pressure contours in patient-specific aorta</figcaption>
-    </figure>
-
-</div>
-
----
-
-# Aerospace Flows
-
-<div class="grid">
-
-    <figure class="card">
-        <img src="images/research/vorticity.png" width="100%">
-        <figcaption>Vorticity structures in curved pipe turbulence</figcaption>
-    </figure>
-
-    <figure class="card">
-        <img src="images/research/dean_vortices.gif" width="100%">
-        <figcaption>Dean vortex evolution in curved channel flow</figcaption>
-    </figure>
-
-</div>
-
----
-
-# Peridynamics
-
-<div class="grid">
-
-
-    <figure class="card">
-        <img src="images/research/Disc_impact.gif" width="100%">
-        <figcaption>Bond breaking dynamics in nonlocal continuum model</figcaption>
-    </figure>
-
-</div>
-
+<section class="section gallery-intro">
+    <h1>Visualization Gallery</h1>
+    <p class="lede">
+        A collection of flow-field visualizations spanning my research arc from high-speed aerospace
+        aerodynamics to patient-specific cardiovascular hemodynamics, plus a set of peridynamics
+        simulations I've run on the side out of personal interest in nonlocal continuum mechanics.
+        Each figure notes the solver, key parameters, and method used to generate it.
+    </p>
 </section>
+
+<!-- ===================== CARDIOVASCULAR / BIOMEDICAL FLOWS ===================== -->
+<section class="section category" id="biomedical">
+    <div class="section-label">
+        <span class="swatch" style="background: var(--flow-4);"></span>
+        <span>01 — Cardiovascular &amp; Biomedical Flows</span>
+    </div>
+    <div class="category-head">
+        <h2>Patient-Specific Hemodynamics</h2>
+        <p class="category-desc">
+            High-fidelity, wall-resolved simulations of pulsatile blood flow, built around an
+            immersed-boundary treatment of patient-derived vascular geometry. This work sits at the
+            core of my dissertation and looks at how curvature, pulsation, and dissection geometry
+            drive transition and turbulence breakdown in the aorta.
+        </p>
+    </div>
+
+    <h3 class="subheading">4D-Flow MRI vs. DNS — Aortic Dissection</h3>
+    <p class="figure-caption" style="padding-left:0;">
+        Direct comparison of in-vivo 4D-flow MRI and direct numerical simulation (DNS) velocity-magnitude
+        fields in a patient with aortic dissection. The DNS inlet condition was reconstructed from the MRI
+        data using radial basis function (RBF) interpolation, and the outlets were closed with three-element
+        Windkessel (WK) boundary conditions to match physiological pressure and flow-split behavior. The two
+        fields show close agreement in both peak velocity magnitude and jet trajectory through the true and
+        false lumen.
+    </p>
+    <div class="pair-grid">
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image26.gif" alt="4D-flow MRI velocity magnitude field in a patient with aortic dissection" loading="lazy"></div>
+            <div class="figure-tags">
+                <span class="tag">4D-Flow MRI</span>
+                <span class="tag">In-vivo</span>
+            </div>
+            <figcaption><strong>In-vivo 4D-flow MRI</strong> — measured velocity magnitude, patient-specific aortic dissection.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image27.gif" alt="CFD DNS velocity magnitude field in a patient-specific aortic dissection reconstruction" loading="lazy"></div>
+            <div class="figure-tags">
+                <span class="tag">DNS</span>
+                <span class="tag">RBF inlet</span>
+                <span class="tag">Windkessel outlet</span>
+            </div>
+            <figcaption><strong>DNS reconstruction</strong> — velocity magnitude, RBF-reconstructed inlet, 3-element Windkessel outlets.</figcaption>
+        </figure>
+    </div>
+
+    <h3 class="subheading">Pulsatile Flow in Curved Aortic-Arch Analogs (Re ≈ 8,000)</h3>
+    <p class="figure-caption" style="padding-left:0;">
+        Three DNS cases in idealized curved-pipe analogs of the aortic arch, isolating the effect of
+        pulsation amplitude and radius of curvature on Dean-vortex breakdown and the transition to
+        turbulence. All three cases share a mean Reynolds number of 8,000; the differences below are
+        purely geometric and waveform-driven.
+    </p>
+    <div class="triple-grid">
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image6.gif" alt="Baseline pulsatile flow case in a curved aortic-arch analog" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">Re = 8,000</span><span class="tag">Baseline</span></div>
+            <figcaption><strong>Baseline case</strong> — reference pulsation amplitude and curvature.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image7.gif" alt="High pulsation amplitude case showing Dean vortex breakdown in curved pipe flow" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">Re = 8,000</span><span class="tag">High pulsation</span></div>
+            <figcaption><strong>High pulsation amplitude</strong> — earlier Dean-vortex breakdown and stronger turbulent bursts.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image8.gif" alt="High radius of curvature case in pulsatile curved pipe flow" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">Re = 8,000</span><span class="tag">High curvature</span></div>
+            <figcaption><strong>High radius of curvature</strong> — altered secondary-flow structure and delayed transition.</figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- ===================== AEROSPACE & PROPULSION FLOWS ===================== -->
+<section class="section category" id="aerospace">
+    <div class="section-label">
+        <span class="swatch" style="background: var(--flow-1);"></span>
+        <span>02 — Aerospace &amp; Propulsion Flows</span>
+    </div>
+    <div class="category-head">
+        <h2>High-Speed &amp; Coupled Flow Simulation</h2>
+        <p class="category-desc">
+            Work spanning my master's thesis at DLR, senior project fellowship at IIST, and doctoral
+            research on fluid-structure interaction — from vortical wing aerodynamics to shock-laden
+            nozzle flow and supersonic parachute deployment.
+        </p>
+    </div>
+
+    <div class="triple-grid">
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image4.PNG" alt="Q-criterion isosurfaces around a delta wing colored by vorticity" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">DLR TAU Code</span><span class="tag">Q-criterion</span><span class="tag">DES/DDES</span></div>
+            <figcaption><strong>Vortex breakdown over a delta wing</strong> — Q-criterion isosurfaces revealing leading-edge vortex roll-up and breakdown. Computed with DLR's unstructured TAU code during my master's thesis work at DLR Göttingen.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image5.PNG" alt="Experimental and numerical schlieren comparison of shock structures in a rocket nozzle" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">CFD++</span><span class="tag">Schlieren</span><span class="tag">Supersonic</span></div>
+            <figcaption><strong>Experimental vs. numerical schlieren, rocket nozzle</strong> — side-by-side comparison showing oblique and separation shock structures. The numerical schlieren, generated with CFD++, closely reproduces the shock topology seen in free-jet experiments.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/image9.gif" alt="Fluid-structure interaction simulation of a cable in supersonic flow" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">CHAMPS</span><span class="tag">FSI</span><span class="tag">Supersonic</span></div>
+            <figcaption><strong>FSI of a cable in supersonic flow</strong> — coupled fluid-structure simulation used to implement and validate a cable/line model for improved drag prediction on flexible suspension lines, in support of supersonic parachute deployment studies. Run on CHAMPS, the in-house Cartesian, higher-order, multi-physics solver developed by Christoph Brehm's group (University of Maryland / University of Kentucky).</figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- ===================== PERIDYNAMICS ===================== -->
+<section class="section category" id="peridynamics">
+    <div class="section-label">
+        <span class="swatch" style="background: #7C8798;"></span>
+        <span>03 — Peridynamics (Personal Projects)</span>
+    </div>
+    <div class="category-head">
+        <h2>Nonlocal Continuum Mechanics</h2>
+        <p class="category-desc">
+            Outside my primary CFD research, I've worked through the standard tutorial problems in
+            <strong>Peridigm</strong>, Sandia National Laboratories' open-source peridynamics code, to
+            get hands-on with nonlocal fracture and damage modeling — a framework I find genuinely
+            interesting as a complement to mesh-based FEA/CFD for problems involving fracture,
+            fragmentation, and discontinuities.
+        </p>
+    </div>
+    <div class="grid">
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/Disc_impact.gif" alt="Peridynamics simulation of a ball impacting and fracturing a disc" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">Peridigm</span><span class="tag">Bond breaking</span></div>
+            <figcaption><strong>Disc impact</strong> — a ball strikes a brittle disc, showing spontaneous crack initiation and fragmentation via bond-breaking in the nonlocal (peridynamic) formulation.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/movie.gif" alt="Peridynamics simulation of a cylinder fragmenting under internal loading" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">Peridigm</span><span class="tag">Fragmentation</span></div>
+            <figcaption><strong>Cylinder fragmentation</strong> — a cylinder breaks apart under internal loading, illustrating peridynamics' native handling of discontinuities without a separate fracture-tracking algorithm.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/movie_twistnpull.gif" alt="Peridynamics simulation of a cylinder segment being twisted and pulled" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">Peridigm</span><span class="tag">Large deformation</span></div>
+            <figcaption><strong>Twist and pull</strong> — a cylindrical segment under combined torsion and axial extension, demonstrating stable large-deformation response.</figcaption>
+        </figure>
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/waveInaBar.gif" alt="Peridynamics simulation of wave propagation along a bar" loading="lazy"></div>
+            <div class="figure-tags"><span class="tag">Peridigm</span><span class="tag">Wave propagation</span></div>
+            <figcaption><strong>Wave propagation in a bar</strong> — a classical peridynamics benchmark showing longitudinal stress-wave propagation and reflection along a 1D bar.</figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- ===================== REFERENCES ===================== -->
+<section class="references">
+    <div class="references-inner">
+        <h2>References</h2>
+        <ol>
+            <li>Silling, S.A. (2000). Reformulation of elasticity theory for discontinuities and long-range forces. <em>Journal of the Mechanics and Physics of Solids</em>, 48(1), 175–209.</li>
+            <li>Peridigm — open-source peridynamics code, Sandia National Laboratories. <a href="https://github.com/peridigm/peridigm" target="_blank" rel="noopener">github.com/peridigm/peridigm</a></li>
+            <li>Boustani, J., Anugrah, G.G., et al. (2020). Numerical Investigation of Parachute Deployment in Supersonic Flow. <em>AIAA SciTech Forum</em>. DOI: 10.2514/6.2020-1050.</li>
+            <li>CHAMPS — Cartesian Higher-Order Adaptive Multi-Physics Solver, developed by C. Brehm and collaborators at the University of Maryland and University of Kentucky.</li>
+            <li>Schwamborn, D., Gerhold, T., Heinrich, R. (2006). The DLR TAU-Code: Recent Applications in Research and Industry. <em>ECCOMAS CFD</em>.</li>
+        </ol>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Gokul Anugrah | CFD • HPC • Scientific ML</p>
+</footer>
 
 </body>
 

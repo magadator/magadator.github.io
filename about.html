@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Gokul Anugrah</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,43 +11,90 @@
 <body>
 
 <header class="navbar">
-    <h2 class="logo">About</h2>
+    <h2 class="logo">Gokul Anugrah</h2>
     <nav>
         <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
         <a href="research.html">Research</a>
         <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
 
 <section class="section">
 
-    <h1>About Me</h1>
+    <div class="section-label">
+        <span class="swatch" style="background: var(--flow-gradient);"></span>
+        <span>About</span>
+    </div>
+    <h1>From Aerospace to the Aorta</h1>
 
-    <p>
-        I recently completed my PhD in Mechanical Engineering at the University of Kentucky,
-        where I specialized in direct numerical simulation of pulsatile turbulent flow in curved geometries
-        relevant to cardiovascular hemodynamics.
+    <p class="lede">
+        I recently completed my Ph.D. in Mechanical Engineering at the University of Kentucky, where I
+        specialized in direct numerical simulation (DNS) of pulsatile turbulent flow in curved
+        geometries relevant to cardiovascular hemodynamics. My path started in high-speed aerospace
+        CFD — nozzle flows, wing aerodynamics, and supersonic fluid-structure interaction — before
+        turning toward patient-specific biomedical flows, and more recently toward machine-learning
+        surrogates that make high-fidelity simulation more tractable.
     </p>
 
-    <h2>Education</h2>
+    <div class="about-grid">
 
-    <ul>
-        <li><b>PhD:</b> Mechanical Engineering, University of Kentucky</li>
-        <li><b>Master’s:</b> Computational Mechanics, Germany</li>
-        <li><b>Bachelor’s:</b> Mechanical Engineering, India</li>
-    </ul>
+        <div class="about-block">
+            <h2>Education</h2>
+            <div class="timeline-item">
+                <span class="yr">2025</span>
+                <div>
+                    <b>Ph.D., Mechanical Engineering</b><br>
+                    University of Kentucky, Lexington, KY — DNS of patient-specific aortic flows,
+                    FSI of parachute deployment in supersonic flow, porous-media interface modeling.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="yr">2016</span>
+                <div>
+                    <b>M.Sc., Computational Mechanics</b><br>
+                    University of Duisburg-Essen, Germany — thesis conducted at DLR Göttingen.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="yr">2011</span>
+                <div>
+                    <b>B.Tech., Mechanical Engineering</b><br>
+                    National Institute of Technology, Warangal, India.
+                </div>
+            </div>
+        </div>
 
-    <h2>Research Interests</h2>
+        <div class="about-block">
+            <h2>Research Interests</h2>
+            <ul>
+                <li>Cardiovascular computational mechanics &amp; hemodynamics</li>
+                <li>Fluid-structure interaction (FSI)</li>
+                <li>High-fidelity CFD / DNS of turbulent flows in curved geometries</li>
+                <li>Machine-learning surrogate models for CFD</li>
+                <li>HPC-based solver development</li>
+            </ul>
+        </div>
 
-    <ul>
-        <li>Computational Fluid Dynamics</li>
-        <li>Turbulent flows in curved geometries</li>
-        <li>Biomedical flows (aortic dissection)</li>
-        <li>High-performance computing</li>
-        <li>Scientific machine learning</li>
-    </ul>
+    </div>
+
+    <div class="about-block" style="margin-top: 1.8rem;">
+        <h2>Currently</h2>
+        <p style="margin-bottom:0;">
+            I'm building out machine-learning surrogate models to accelerate CFD parameter studies —
+            using PyTorch and exploring physics-informed neural networks (PINNs) — while continuing to
+            apply high-fidelity DNS/FSI methods to cardiovascular flow problems.
+        </p>
+    </div>
 
 </section>
+
+<footer>
+    <p>© 2026 Gokul Anugrah | CFD • HPC • Scientific ML</p>
+</footer>
 
 </body>
 
