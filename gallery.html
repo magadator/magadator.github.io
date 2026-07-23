@@ -27,9 +27,9 @@
     <h1>Visualization Gallery</h1>
     <p class="lede">
         A collection of flow-field visualizations spanning my research arc from high-speed aerospace
-        aerodynamics to patient-specific cardiovascular hemodynamics, plus a set of peridynamics
-        simulations I've run on the side out of personal interest in nonlocal continuum mechanics.
-        Each figure notes the solver, key parameters, and method used to generate it.
+        aerodynamics to patient-specific cardiovascular hemodynamics and conjugate heat transfer, plus a
+        set of peridynamics simulations I've run on the side out of personal interest in nonlocal
+        continuum mechanics. Each figure notes the solver, key parameters, and method used to generate it.
     </p>
 </section>
 
@@ -138,11 +138,62 @@
     </div>
 </section>
 
+<!-- ===================== CONJUGATE HEAT TRANSFER ===================== -->
+<section class="section category" id="cht">
+    <div class="section-label">
+        <span class="swatch" style="background: var(--flow-3);"></span>
+        <span>03 — Conjugate Heat Transfer</span>
+    </div>
+    <div class="category-head">
+        <h2>Jet Impingement Cooling — OpenFOAM CHT</h2>
+        <p class="category-desc">
+            A conjugate heat transfer (CHT) study of automatic transmission fluid (ATF) jet impingement
+            cooling on a heated cylindrical wire — a configuration representative of jet-cooled electric
+            machine windings. Run in OpenFOAM to reproduce experimental heat-transfer-coefficient (HTC)
+            trends published by NREL.
+        </p>
+    </div>
+
+    <p class="figure-caption" style="padding-left:0;">
+        The domain couples a fluid region (ATF, Mercon LV) with a solid copper heater region across a
+        <code>mappedWall</code> interface that exchanges temperature and heat flux directly, so the wall
+        temperature is a solved outcome rather than a prescribed boundary condition. Steady-state cases
+        were run with <strong>chtMultiRegionSimpleFoam</strong>, OpenFOAM's segregated SIMPLE-algorithm
+        solver for multi-region conjugate heat transfer, coupling incompressible flow in the fluid
+        region to pure conduction in the solid region at every outer iteration; a handful of low-velocity
+        cases used the unsteady counterpart, <strong>chtMultiRegionFoam</strong>. Turbulence was modeled
+        with <strong>k-ω SST</strong> (blending k-ω near the wall with k-ε in the freestream, appropriate
+        for the Re = 121–2,414 range at the nozzle), switching to laminar for the lowest-velocity case.
+        Because ATF is a high-Prandtl fluid (Pr ≈ 107 at 70 °C), the thermal boundary layer is roughly
+        Pr<sup>1/3</sup> ≈ 4.75× thinner than the momentum boundary layer, which demands a dedicated
+        high-Pr wall treatment — handled here with <strong>alphatJayatillekeWallFunction</strong>
+        (Pr<sub>t</sub> = 0.85) on the fluid side and a <strong>fixedTemperatureConstraint</strong>
+        (<code>fvOptions</code>) on the solid side, alongside a near-wall mesh resolved to y⁺ ≈ 1.7 on
+        the coarse mesh. Predicted HTC matched experiment within ~10% at low jet velocity (0.5 m/s) for
+        both the baseline and 18 AWG wire geometries, with accuracy degrading at higher velocity —
+        traced to insufficient near-wall resolution for the high thermal-y⁺ requirement of Pr = 107 (a
+        target of y⁺ &lt; 0.5, versus an actual thermal y⁺ ≈ 8.2), identifying near-wall mesh refinement
+        as the key next step.
+    </p>
+    <div class="grid">
+        <figure class="figure-card">
+            <div class="figure-media"><img src="images/research/CHT.gif" alt="OpenFOAM chtMultiRegionSimpleFoam simulation showing velocity magnitude and coupled solid temperature for ATF jet impingement cooling of a heater wire" loading="lazy"></div>
+            <div class="figure-tags">
+                <span class="tag">OpenFOAM</span>
+                <span class="tag">chtMultiRegionSimpleFoam</span>
+                <span class="tag">k-ω SST</span>
+                <span class="tag">Pr = 107</span>
+            </div>
+            <figcaption><strong>ATF jet impingement on a heated wire</strong> — coupled velocity-magnitude (fluid) and temperature (solid) fields from the CHT solve, visualized in VisIt as the SIMPLE-algorithm iterations converge toward steady state.</figcaption>
+        </figure>
+    </div>
+</section>
+
 <!-- ===================== PERIDYNAMICS ===================== -->
 <section class="section category" id="peridynamics">
     <div class="section-label">
         <span class="swatch" style="background: #7C8798;"></span>
-        <span>03 — Peridynamics (Personal Projects)</span>
+        <span>04 — Peridynamics (Personal Projects)</span>
     </div>
     <div class="category-head">
         <h2>Nonlocal Continuum Mechanics</h2>
@@ -188,6 +239,8 @@
             <li>Boustani, J., Anugrah, G.G., et al. (2020). Numerical Investigation of Parachute Deployment in Supersonic Flow. <em>AIAA SciTech Forum</em>. DOI: 10.2514/6.2020-1050.</li>
             <li>CHAMPS — Cartesian Higher-Order Adaptive Multi-Physics Solver, developed by C. Brehm and collaborators at the University of Maryland and University of Kentucky.</li>
             <li>Schwamborn, D., Gerhold, T., Heinrich, R. (2006). The DLR TAU-Code: Recent Applications in Research and Industry. <em>ECCOMAS CFD</em>.</li>
+            <li>Bennion, K., Moreno, G. (2015). Convective Heat Transfer Coefficients of Automatic Transmission Fluid Jets With Implications for Electric Machine Thermal Management. National Renewable Energy Laboratory (NREL). NREL/CP-5400-63969.</li>
+            <li>OpenFOAM Foundation — <code>chtMultiRegionSimpleFoam</code> / <code>chtMultiRegionFoam</code> conjugate heat transfer solvers. <a href="https://www.openfoam.com" target="_blank" rel="noopener">openfoam.com</a></li>
         </ol>
     </div>
 </section>
