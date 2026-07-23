@@ -162,7 +162,7 @@
         solver for multi-region conjugate heat transfer, coupling incompressible flow in the fluid
         region to pure conduction in the solid region at every outer iteration; a handful of low-velocity
         cases used the unsteady counterpart, <strong>chtMultiRegionFoam</strong>. Turbulence was modeled
-        with <strong>k-ω SST</strong> (blending k-ω near the wall with k-ε in the freestream, appropriate
+        with <strong>k-omega SST</strong> (blending k-ω near the wall with k-ε in the freestream, appropriate
         for the Re = 121–2,414 range at the nozzle), switching to laminar for the lowest-velocity case.
         Because ATF is a high-Prandtl fluid (Pr ≈ 107 at 70 °C), the thermal boundary layer is roughly
         Pr<sup>1/3</sup> ≈ 4.75× thinner than the momentum boundary layer, which demands a dedicated
